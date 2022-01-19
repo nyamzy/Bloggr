@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+<!-- Content block -->
+{% block content %}
+    <h2 class="text-center">Your Random Quote For Today</h2>
+    <p class="text-center">{{random.quote}}</p>
+    <p class = "text-center">{{random.author}}</p>
+{% endblock %}
