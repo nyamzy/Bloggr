@@ -8,6 +8,6 @@ class CommentForm(FlaskForm):
 
 class BlogForm(FlaskForm):
     title = StringField('Blog title', validators=[InputRequired()])
-    blog = TextAreaField('Say something', validators=[InputRequired()])
+    content = TextAreaField('Say something', validators=[InputRequired()])
     submit = SubmitField('Submit')
 
