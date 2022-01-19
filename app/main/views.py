@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
 from ..request import get_quotes
-from ..models import Blog, User
+from ..models import Blog, User, Comment
 from .forms import BlogForm, CommentForm, UpdateProfile
 from flask_login import login_required
 from .. import db, photos
@@ -33,8 +33,26 @@ def new_blog():
     else:
         all_blogs = Blog.query.order_by(Blog.posted)
 
-    return render_template('blog.html', blog_form = form, blogs = all_blogs)
+    return render_template('new_blog.html', blog_form = form, blogs = all_blogs)
         
+
+@main.route('/comment/<int:blog_id>', methods = ["GET", "POST"])
+@login_required
+def comment(blog_id):
+    form = CommentForm()
+    blog = Blog.query.get(blog_id)
+    all_comments = Comment.query.filter_by(blog_id = blog_id).all()
+    
+    if form.validate_on_submit():
+        comment = form.comment.data
+        blog_id = blog_id
+        new_comment = Comment(comment = comment, blog_id = blog_id)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('.comment', blog_id = blog_id))
+    
+    return render_template('new_comment.html', comment_form = form, blog = blog, all_comments = all_comments)
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
