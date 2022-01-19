@@ -2,7 +2,27 @@
 
 <!-- Content block -->
 {% block content %}
+<div class="container">
     <h2 class="text-center">Your Random Quote For Today</h2>
     <p class="text-center"><em>{{random.quote}}</em></p>
     <p class = "text-center"><strong>{{random.author}}</strong></p>
+    <br>
+    <br>
+    {% for blog in blogs %}
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+              {{blog.title}}
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{blog.content}}</p>
+                <footer class="blockquote-footer">Posted on {{blog.posted}}</footer>
+                <a class="btn btn-primary" href="{{url_for('main.comment', blog_id = blogs.id)}}">Comments:{{blog.comment.count()}}</a>
+              </blockquote>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

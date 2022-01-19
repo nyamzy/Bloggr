@@ -27,8 +27,13 @@ def new_blog():
         content = form.content.data
 
         new_blog = Blog(title = title, content = content)
+        db.session.add(new_blog)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+    else:
+        all_blogs = Blog.query.order_by(Blog.posted)
 
-        #saving the new blog
+    return render_template('blog.html', blog_form = form, blogs = all_blogs)
         
 @main.route('/user/<uname>')
 def profile(uname):
