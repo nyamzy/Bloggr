@@ -14,8 +14,10 @@ def index():
     '''
     random_quotes = get_quotes()
     print(random_quotes)
-    title = "Blog"
-    return render_template('index.html', title = title, random = random_quotes)
+    blogs = Blog.query.all()
+    user = User.query.all()
+    title = "Bloggr"
+    return render_template('index.html', title = title, random = random_quotes, blogs = blogs, user = user)
 
 @main.route('/create_new', methods = ["GET", "POST"])
 @login_required

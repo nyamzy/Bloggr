@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
                 <li style="color:white;"><a href="{{url_for('main.profile',uname = current_user.username)}}">Profile</a></li>
-                <li><button class="btn btn-info"><a href="{{url_for('main.new_blog')}}">Create Blog</a></button></li>
+                <li><button style="margin-top: 8px;" class="btn btn-info"><a href="{{url_for('main.new_blog')}}">Create Blog</a></button></li>
                 <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                 {% else %}
                 <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
@@ -26,3 +26,4 @@
 
     </div>
 </div>
+

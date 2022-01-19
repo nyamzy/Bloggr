@@ -11,7 +11,10 @@
     <h3 class="text-centre">Blog Comments</h3>
     {% for comment in all_comments %}
         <div class="col-md-12">
-            <p>{{comment.comment}}</p>
+            <ul>
+                <li>{{comment.comment}}</li>
+                <li></li>
+            </ul>
         </div>
     {% endfor %}
 </div>

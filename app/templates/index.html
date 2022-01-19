@@ -18,7 +18,7 @@
               <blockquote class="blockquote mb-0">
                 <p>{{blog.content}}</p>
                 <footer class="blockquote-footer">Posted on {{blog.posted}}</footer>
-                <a class="btn btn-primary" href="{{url_for('main.comment', blog_id = blogs.id)}}">Comments:{{blog.comment.count()}}</a>
+                <a class="btn btn-primary" href="{{url_for('main.comment', blog_id = blog.id)}}">Comments:{{blog.comment.count()}}</a>
               </blockquote>
             </div>
           </div>
