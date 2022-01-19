@@ -1,10 +1,10 @@
+import os
+
 class Config:
     '''
     General configuration parent class
     '''
-    pass
-    RANDOM_QUOTES_URL = "http://quotes.stormconsultancy.co.uk/random.json"
-
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 class ProdConfig(Config):
     '''
@@ -18,3 +18,8 @@ class DevConfig(Config):
     Development  configuration child class
     '''
     DEBUG = True
+
+config_optins = {
+    'development': DevConfig,
+    'production': ProdConfig
+}

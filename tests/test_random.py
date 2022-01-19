@@ -1,6 +1,5 @@
 import unittest
-from models import random
-Random = random.Random
+from app.models import Random
 
 class RandomQuotesTest(unittest.TestCase):
     '''
@@ -11,7 +10,3 @@ class RandomQuotesTest(unittest.TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_quote, Random))
-
-
-if __name__ == '__main__':
-    unittest.main()
