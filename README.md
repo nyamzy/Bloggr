@@ -11,7 +11,7 @@
   - To access the github repository for this project, please use the following link (https://github.com/nyamzy/Bloggr.git). You will be able to access the different files that I have used to make the website and also do any additional work on them.
 
 # Live Link
-  [Bloggr] (https://)
+  [Bloggr] (https://bloggr.herokuapp.com/)
 
 # Technologies Used
   This application used the following languages:
